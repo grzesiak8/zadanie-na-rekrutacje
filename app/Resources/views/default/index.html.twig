@@ -17,8 +17,14 @@
                 <div class="col-md-8"></div>
             </div>
 
-            {% if solution %}
-                <p class="bg-info">Solution: {{ solution }}</p>
+            {% if solutions %}
+                <p class="bg-info">
+                    <ul>
+                        {% for solution in solutions %}
+                            <li>{{ solution }}</li>
+                        {% endfor %}
+                    </ul>
+                </p>
             {% endif %}
         </div>
     </div>

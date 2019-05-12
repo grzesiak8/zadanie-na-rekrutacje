@@ -17,13 +17,17 @@ class DefaultController extends Controller
     {
         $form = $this->createForm(FormType::class);
         $form->handleRequest($request);
-        $solution = null;
+        $solutions = null;
         if($form->isSubmitted()) {
-            $solution = $solverSevice->getSolution($form->get('input')->getData());
+            $toSolve = $form->get('input')->getData();
+            foreach($toSolve as $item) {
+                $solution = $solverSevice->getSolution($item);
+                $solutions[$item] = $solution;
+            }
         }
         return $this->render('default/index.html.twig', [
             'form' => $form->createView(),
-            'solution' => $solution,
+            'solutions' => $solutions,
         ]);
     }
 }
