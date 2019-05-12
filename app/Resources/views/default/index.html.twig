@@ -4,6 +4,9 @@
     <div id="wrapper">
         <div id="container">
             {{ form(form) }}
+            {% if solution %}
+                {{ solution }}
+            {% endif %}
         </div>
     </div>
 {% endblock %}

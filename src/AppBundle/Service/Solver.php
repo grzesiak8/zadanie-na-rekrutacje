@@ -9,7 +9,9 @@ class Solver
         if($value == 0 || $value == 1) {
             return $value;
         }
-        $this->prepareAnswers();
+        if (empty($this->answers)) {
+            $this->prepareAnswers();
+        }
         $max = 0;
         foreach ($this->answers as $keyAnswers => $valueAnswers) {
             if($valueAnswers > $max) {
