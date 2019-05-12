@@ -4,7 +4,16 @@
     <div id="wrapper">
         <div id="container">
             <div class="row">
-                <div class="col-md-4">{{ form(form) }}</div>
+                <div class="col-md-4">
+                    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                    Input:<br />
+                    <div id="inputs">
+                        <input class="input" type="text" id="form_input" name="form[input][]"/>
+                    </div>
+                    <br />
+                    <button id="addInput" type="button" class="btn btn-default">Add input</button>
+                    {{ form_widget(form.save) }}
+                    {{ form_end(form, {'render_rest': false}) }}</div>
                 <div class="col-md-8"></div>
             </div>
 
@@ -13,4 +22,13 @@
             {% endif %}
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(document).ready(function() {
+            $('#addInput').on('click', function(){
+                $( ".input" ).last().after('<br /><input class="input" type="text" id="form_input" name="form[input][]"/>');
+            });
+    });
+</script>
 {% endblock %}
