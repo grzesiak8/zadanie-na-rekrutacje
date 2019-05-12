@@ -3,9 +3,13 @@
 {% block body %}
     <div id="wrapper">
         <div id="container">
-            {{ form(form) }}
+            <div class="row">
+                <div class="col-md-4">{{ form(form) }}</div>
+                <div class="col-md-8"></div>
+            </div>
+
             {% if solution %}
-                {{ solution }}
+                <p class="bg-info">Solution: {{ solution }}</p>
             {% endif %}
         </div>
     </div>
