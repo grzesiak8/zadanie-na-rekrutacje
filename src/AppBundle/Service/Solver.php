@@ -6,9 +6,6 @@ class Solver
     private $answers = [];
     function getSolution($value)
     {
-        if($value == 0 || $value == 1) {
-            return $value;
-        }
         if (empty($this->answers)) {
             $this->prepareAnswers();
         }
